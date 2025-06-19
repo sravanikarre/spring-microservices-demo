@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/orders/v1")
 public class OrderController {
 
     @Autowired
@@ -21,7 +21,7 @@ public class OrderController {
     @Autowired
     private ProductClient productClient;
 
-    @GetMapping
+    @GetMapping()
     public List<Order> getAll() {
         List<Order> orders = orderRepository.findAll();
         orders.forEach(order -> {
